@@ -1,8 +1,5 @@
 package com.jan.jmoviesdb.data.database.datasource
 
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
 import com.jan.jmoviesdb.data.database.dao.MovieDao
 import com.jan.jmoviesdb.data.domain.model.Movie
 import kotlinx.coroutines.flow.Flow

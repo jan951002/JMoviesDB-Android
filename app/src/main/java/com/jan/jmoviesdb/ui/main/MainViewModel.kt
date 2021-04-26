@@ -1,4 +1,10 @@
 package com.jan.jmoviesdb.ui.main
 
-class MainViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.jan.jmoviesdb.data.domain.repository.MovieRepository
+
+class MainViewModel(application: Application, movieRepository: MovieRepository) :
+    AndroidViewModel(application) {
+
 }

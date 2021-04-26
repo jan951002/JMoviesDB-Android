@@ -13,7 +13,7 @@ import org.koin.dsl.module
  * Module to configure room database dependency injection
  * @author Jaime Trujillo
  */
-val appDatabaseModule = module {
+val databaseModule = module {
 
     /* Define a Singleton instance for AppDatabase */
     single { provideDatabase(androidApplication()) }

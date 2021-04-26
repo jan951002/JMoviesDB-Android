@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">JMoviesDB</string>
+    <string name="movies_db_base_url">https://api.themoviedb.org/3/</string>
+    <string name="movies_db_api_key">f7c6a12a06b5eb5a4b4dc11b246fe919</string>
 </resources>

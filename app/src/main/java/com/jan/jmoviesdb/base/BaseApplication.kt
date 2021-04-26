@@ -1,7 +1,10 @@
-package com.servinf.androidstack.base
+package com.jan.jmoviesdb.base
 
 import android.app.Application
-import com.servinf.androidstack.di.*
+import com.jan.jmoviesdb.di.apiModule
+import com.jan.jmoviesdb.di.databaseModule
+import com.jan.jmoviesdb.di.repositoryModule
+import com.jan.jmoviesdb.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -18,10 +21,9 @@ class BaseApplication : Application() {
             androidContext(this@BaseApplication)
             modules(
                 apiModule,
+                databaseModule,
                 repositoryModule,
-                viewModelModule,
-                preferencesModule,
-                appDatabaseModule
+                viewModelModule
             )
         }
     }

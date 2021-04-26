@@ -1,8 +1,7 @@
-package com.servinf.androidstack.di
+package com.jan.jmoviesdb.di
 
-import com.servinf.androidstack.data.repository.DogRepository
-import com.servinf.androidstack.data.repository.DogRepositoryImpl
-import org.koin.android.ext.koin.androidContext
+import com.jan.jmoviesdb.data.domain.repository.MovieRepository
+import com.jan.jmoviesdb.data.domain.repository.MovieRepositoryImpl
 import org.koin.dsl.module
 
 /**
@@ -12,8 +11,8 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
 
-    /* Define a factory (create a new instance each time) for DogRepository */
-    factory<DogRepository> {
-        DogRepositoryImpl(wikiApiService = get(), dogDao = get(), context = androidContext())
+    /* Define a factory (create a new instance each time) for MovieRepository */
+    factory<MovieRepository> {
+        MovieRepositoryImpl(movieLocalDataSource = get(), movieRemoteDataSource = get())
     }
 }
