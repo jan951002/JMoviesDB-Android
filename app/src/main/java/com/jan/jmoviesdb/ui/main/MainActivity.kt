@@ -1,7 +1,8 @@
-package com.jan.jmoviesdb
+package com.jan.jmoviesdb.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jan.jmoviesdb.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
