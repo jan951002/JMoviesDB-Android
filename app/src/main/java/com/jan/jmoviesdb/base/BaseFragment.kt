@@ -24,8 +24,7 @@ abstract class BaseFragment<Binding : ViewBinding>(private val inflate: Inflate<
     private var baseActivity: AppCompatActivity? = null
 
     override fun onCreateView(
-        @NonNull inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        @NonNull inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = inflate(inflater, container, false)
         return _binding.root

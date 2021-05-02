@@ -31,7 +31,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(FragmentMoviesBinding
         binding.moviesRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                moviesViewModel.notifyLastVisible(layoutManager.findLastVisibleItemPosition())
+                moviesViewModel.lastVisible.value = layoutManager.findLastVisibleItemPosition()
             }
         })
     }

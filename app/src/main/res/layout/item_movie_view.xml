@@ -3,7 +3,6 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="android.view.View" />
 
         <variable
             name="movie"
@@ -34,9 +33,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/purple_500"
+                android:ellipsize="end"
                 android:gravity="center"
                 android:lines="2"
+                android:paddingHorizontal="@dimen/item_horizontal_margin"
                 android:paddingVertical="@dimen/minimum_margin_vertical"
+                android:singleLine="false"
                 android:text="@{movie.title}"
                 android:textColor="@color/white"
                 android:textSize="14sp" />

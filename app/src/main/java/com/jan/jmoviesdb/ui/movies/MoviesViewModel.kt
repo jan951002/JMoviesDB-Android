@@ -7,18 +7,23 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.jan.jmoviesdb.data.domain.model.Movie
 import com.jan.jmoviesdb.data.domain.repository.MovieRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MoviesViewModel(application: Application, private val movieRepository: MovieRepository) :
     AndroidViewModel(application) {
 
     val movies: LiveData<List<Movie>> = movieRepository.getMovies().asLiveData()
+    val lastVisible = MutableStateFlow(0)
 
     init {
-        notifyLastVisible(0)
+        viewModelScope.launch {
+            lastVisible.collect { notifyLastVisible(it) }
+        }
     }
 
-    fun notifyLastVisible(lastVisible: Int) {
-        viewModelScope.launch { movieRepository.checkRequireNewPage(lastVisible) }
+    private suspend fun notifyLastVisible(lastVisible: Int) {
+        movieRepository.checkRequireNewPage(lastVisible)
     }
 }
