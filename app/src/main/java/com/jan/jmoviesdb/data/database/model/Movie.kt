@@ -7,13 +7,9 @@ import com.jan.jmoviesdb.data.domain.model.Movie
 @Entity(tableName = "movies")
 data class Movie(
 
-    @PrimaryKey
     var id: Long,
 
     var adult: Boolean,
-
-    @ColumnInfo(name = "backdrop_path")
-    var backdropPath: String,
 
     @TypeConverters(DataListIntConverter::class)
     @ColumnInfo(name = "genre_ids")
@@ -45,10 +41,12 @@ data class Movie(
     @ColumnInfo(name = "vote_count")
     var voteCount: Int
 ) {
+    @PrimaryKey(autoGenerate = true)
+    var localId = 0L
+
     fun toMovieDomain(): Movie = Movie(
         id = this.id,
         adult = this.adult,
-        backdropPath = this.backdropPath,
         genreIds = this.genreIds,
         originalLanguage = this.originalLanguage,
         originalTitle = this.originalTitle,

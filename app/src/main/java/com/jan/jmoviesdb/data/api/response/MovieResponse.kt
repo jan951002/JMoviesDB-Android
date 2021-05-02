@@ -7,26 +7,24 @@ import com.jan.jmoviesdb.data.domain.model.Movie
 data class MovieResponse(
     @SerializedName("adult")
     var adult: Boolean,
-    @SerializedName("backdrop_path")
-    var backdropPath: String,
     @SerializedName("genre_ids")
     var genreIds: List<Int>,
     @SerializedName("id")
     var id: Long,
     @SerializedName("original_language")
-    var originalLanguage: String,
+    var originalLanguage: String? = "",
     @SerializedName("original_title")
-    var originalTitle: String,
+    var originalTitle: String? = "",
     @SerializedName("overview")
-    var overview: String,
+    var overview: String? = "",
     @SerializedName("popularity")
     var popularity: Double,
     @SerializedName("poster_path")
-    var posterPath: String,
+    var posterPath: String? = "",
     @SerializedName("release_date")
-    var releaseDate: String,
+    var releaseDate: String? = "",
     @SerializedName("title")
-    var title: String,
+    var title: String? = "",
     @SerializedName("video")
     var video: Boolean,
     @SerializedName("vote_average")
@@ -38,15 +36,14 @@ data class MovieResponse(
     fun toMovieDomain(): Movie = Movie(
         id = this.id,
         adult = this.adult,
-        backdropPath = this.backdropPath,
         genreIds = this.genreIds,
-        originalLanguage = this.originalLanguage,
-        originalTitle = this.originalTitle,
-        overview = this.overview,
+        originalLanguage = this.originalLanguage ?: "",
+        originalTitle = this.originalTitle ?: "",
+        overview = this.overview ?: "",
         popularity = this.popularity,
-        posterPath = this.posterPath,
-        releaseDate = this.releaseDate,
-        title = this.title,
+        posterPath = this.posterPath ?: "",
+        releaseDate = this.releaseDate ?: "",
+        title = this.title ?: "",
         video = this.video,
         voteAverage = this.voteAverage,
         voteCount = this.voteCount

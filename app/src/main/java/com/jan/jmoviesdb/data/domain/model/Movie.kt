@@ -6,7 +6,6 @@ data class Movie(
 
     var id: Long,
     var adult: Boolean,
-    var backdropPath: String,
     var genreIds: List<Int>,
     var originalLanguage: String,
     var originalTitle: String,
@@ -23,7 +22,6 @@ data class Movie(
     fun toMovieRoom(): Movie = Movie(
         id = this.id,
         adult = this.adult,
-        backdropPath = this.backdropPath,
         genreIds = this.genreIds,
         originalLanguage = this.originalLanguage,
         originalTitle = this.originalTitle,
