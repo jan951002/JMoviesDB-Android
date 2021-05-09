@@ -18,4 +18,7 @@ interface MovieDao {
 
     @Query("SELECT * FROM movies")
     fun getMovies(): Flow<List<Movie>>
+
+    @Query("UPDATE movies SET count_on_cart = :quantity WHERE local_id = :movieLocalId")
+    suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int)
 }

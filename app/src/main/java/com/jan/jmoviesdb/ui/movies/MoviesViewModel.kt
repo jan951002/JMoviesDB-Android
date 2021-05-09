@@ -14,7 +14,8 @@ import kotlinx.coroutines.launch
 class MoviesViewModel(application: Application, private val movieRepository: MovieRepository) :
     AndroidViewModel(application) {
 
-    val movies: LiveData<List<Movie>> = movieRepository.getMovies().asLiveData()
+    val movies: LiveData<List<Movie>> =
+        movieRepository.getMovies().asLiveData()
     val lastVisible = MutableStateFlow(0)
 
     init {
@@ -25,5 +26,11 @@ class MoviesViewModel(application: Application, private val movieRepository: Mov
 
     private suspend fun notifyLastVisible(lastVisible: Int) {
         movieRepository.checkRequireNewPage(lastVisible)
+    }
+
+    fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int) {
+        viewModelScope.launch {
+            movieRepository.updateQuantityOnShoppingCart(movieLocalId, quantity)
+        }
     }
 }

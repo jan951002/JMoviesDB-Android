@@ -39,9 +39,13 @@ data class Movie(
     var voteAverage: Double,
 
     @ColumnInfo(name = "vote_count")
-    var voteCount: Int
+    var voteCount: Int,
+
+    @ColumnInfo(name = "count_on_cart")
+    var countOnCart: Int
 ) {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "local_id")
     var localId = 0L
 
     fun toMovieDomain(): Movie = Movie(
@@ -57,6 +61,8 @@ data class Movie(
         title = this.title,
         video = this.video,
         voteAverage = this.voteAverage,
-        voteCount = this.voteCount
+        voteCount = this.voteCount,
+        countOnCart = this.countOnCart,
+        localId = localId
     )
 }

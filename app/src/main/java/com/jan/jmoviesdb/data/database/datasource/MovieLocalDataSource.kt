@@ -12,6 +12,8 @@ interface MovieLocalDataSource {
     suspend fun countMovies(): Int
 
     fun getMovies(): Flow<List<Movie>>
+
+    suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int)
 }
 
 class MovieLocalDataSourceImpl(private val movieDao: MovieDao) : MovieLocalDataSource {
@@ -24,4 +26,7 @@ class MovieLocalDataSourceImpl(private val movieDao: MovieDao) : MovieLocalDataS
     override fun getMovies() =
         movieDao.getMovies().map { movies -> movies.map { it.toMovieDomain() } }
 
+    override suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int) {
+        movieDao.updateQuantityOnShoppingCart(movieLocalId, quantity)
+    }
 }

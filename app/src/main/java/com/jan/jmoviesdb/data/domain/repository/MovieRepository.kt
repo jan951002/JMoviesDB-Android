@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface MovieRepository {
     fun getMovies(): Flow<List<Movie>>
     suspend fun checkRequireNewPage(lastVisible: Int)
+    suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int)
 }
 
 class MovieRepositoryImpl(
@@ -31,5 +32,8 @@ class MovieRepositoryImpl(
         }
     }
 
+    override suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int) {
+        movieLocalDataSource.updateQuantityOnShoppingCart(movieLocalId, quantity)
+    }
 }
 

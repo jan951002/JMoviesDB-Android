@@ -46,6 +46,8 @@ data class MovieResponse(
         title = this.title ?: "",
         video = this.video,
         voteAverage = this.voteAverage,
-        voteCount = this.voteCount
+        voteCount = this.voteCount,
+        countOnCart = 0,
+        localId = 0L
     )
 }
