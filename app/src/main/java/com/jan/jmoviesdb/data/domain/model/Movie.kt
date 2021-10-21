@@ -1,12 +1,12 @@
 package com.jan.jmoviesdb.data.domain.model
 
+import androidx.databinding.BaseObservable
 import com.jan.jmoviesdb.data.database.model.Movie
 
 data class Movie(
 
     var id: Long,
     var adult: Boolean,
-    var backdropPath: String,
     var genreIds: List<Int>,
     var originalLanguage: String,
     var originalTitle: String,
@@ -17,13 +17,15 @@ data class Movie(
     var title: String,
     var video: Boolean,
     var voteAverage: Double,
-    var voteCount: Int
-) {
+    var voteCount: Int,
+    var countOnCart: Int,
+    var localId: Long
+) : BaseObservable() {
 
     fun toMovieRoom(): Movie = Movie(
+
         id = this.id,
         adult = this.adult,
-        backdropPath = this.backdropPath,
         genreIds = this.genreIds,
         originalLanguage = this.originalLanguage,
         originalTitle = this.originalTitle,
@@ -34,6 +36,7 @@ data class Movie(
         title = this.title,
         video = this.video,
         voteAverage = this.voteAverage,
-        voteCount = this.voteCount
+        voteCount = this.voteCount,
+        countOnCart = this.countOnCart
     )
 }

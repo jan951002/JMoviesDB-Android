@@ -1,8 +1,5 @@
 package com.jan.jmoviesdb.data.database.datasource
 
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
 import com.jan.jmoviesdb.data.database.dao.MovieDao
 import com.jan.jmoviesdb.data.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
@@ -15,6 +12,8 @@ interface MovieLocalDataSource {
     suspend fun countMovies(): Int
 
     fun getMovies(): Flow<List<Movie>>
+
+    suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int)
 }
 
 class MovieLocalDataSourceImpl(private val movieDao: MovieDao) : MovieLocalDataSource {
@@ -27,4 +26,7 @@ class MovieLocalDataSourceImpl(private val movieDao: MovieDao) : MovieLocalDataS
     override fun getMovies() =
         movieDao.getMovies().map { movies -> movies.map { it.toMovieDomain() } }
 
+    override suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int) {
+        movieDao.updateQuantityOnShoppingCart(movieLocalId, quantity)
+    }
 }

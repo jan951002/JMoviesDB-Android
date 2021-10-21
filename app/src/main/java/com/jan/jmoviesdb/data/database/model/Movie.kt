@@ -7,13 +7,9 @@ import com.jan.jmoviesdb.data.domain.model.Movie
 @Entity(tableName = "movies")
 data class Movie(
 
-    @PrimaryKey
     var id: Long,
 
     var adult: Boolean,
-
-    @ColumnInfo(name = "backdrop_path")
-    var backdropPath: String,
 
     @TypeConverters(DataListIntConverter::class)
     @ColumnInfo(name = "genre_ids")
@@ -43,12 +39,18 @@ data class Movie(
     var voteAverage: Double,
 
     @ColumnInfo(name = "vote_count")
-    var voteCount: Int
+    var voteCount: Int,
+
+    @ColumnInfo(name = "count_on_cart")
+    var countOnCart: Int
 ) {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "local_id")
+    var localId = 0L
+
     fun toMovieDomain(): Movie = Movie(
         id = this.id,
         adult = this.adult,
-        backdropPath = this.backdropPath,
         genreIds = this.genreIds,
         originalLanguage = this.originalLanguage,
         originalTitle = this.originalTitle,
@@ -59,6 +61,8 @@ data class Movie(
         title = this.title,
         video = this.video,
         voteAverage = this.voteAverage,
-        voteCount = this.voteCount
+        voteCount = this.voteCount,
+        countOnCart = this.countOnCart,
+        localId = localId
     )
 }

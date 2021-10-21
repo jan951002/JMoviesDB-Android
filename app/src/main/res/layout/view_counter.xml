@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/minimum_margin_vertical"
+    android:weightSum="3">
+
+    <ImageView
+        style="@style/Theme.JMoviesDB.TintView"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_remove" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/Theme.JMoviesDB.TextImportantStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center" />
+
+    <ImageView
+        style="@style/Theme.JMoviesDB.TintView"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_add" />
+</merge>
