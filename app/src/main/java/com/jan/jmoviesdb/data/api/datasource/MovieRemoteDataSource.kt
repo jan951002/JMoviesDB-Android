@@ -2,7 +2,6 @@ package com.jan.jmoviesdb.data.api.datasource
 
 import com.jan.jmoviesdb.data.api.MovieDBApi
 import com.jan.jmoviesdb.data.domain.model.Movie
-import retrofit2.http.Query
 
 interface MovieRemoteDataSource {
     suspend fun getMovies(page: Int): List<Movie>

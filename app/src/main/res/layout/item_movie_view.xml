@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.jan.jmoviesdb.data.domain.model.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/item_horizontal_margin"
+        android:layout_marginTop="@dimen/item_vertical_margin"
+        card_view:cardElevation="3dp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/movieImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_item"
+                android:contentDescription="@string/app_name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/Theme.JMoviesDB.TextContentStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="2"
+                android:paddingHorizontal="@dimen/item_horizontal_margin"
+                android:singleLine="false"
+                android:text="@{movie.title}" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_vertical_margin"
+                android:paddingVertical="@dimen/minimum_margin_vertical"
+                android:text="@string/lab_add_shopping_cart"
+                android:textAllCaps="false"
+                card_view:icon="@drawable/ic_add_shopping_cart" />
+
+            <com.jan.jmoviesdb.ui.custom.view.CounterView
+                android:id="@+id/counterView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:count="@{movie.countOnCart}" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -5,26 +5,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
+import com.jan.jmoviesdb.util.Inflate
 
 /**
  * Base fragment class
  * @author Jaime Trujillo
  */
-abstract class BaseFragment : Fragment() {
+
+abstract class BaseFragment<Binding : ViewBinding>(private val inflate: Inflate<Binding>) :
+    Fragment() {
+
+    private lateinit var _binding: Binding
+    protected val binding get() = _binding
     private var baseActivity: AppCompatActivity? = null
 
-    @LayoutRes
-    protected abstract fun layoutRes(): Int
-
     override fun onCreateView(
-        @NonNull inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        @NonNull inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(layoutRes(), container, false)
+        _binding = inflate(inflater, container, false)
+        return _binding.root
     }
 
     override fun onAttach(context: Context) {

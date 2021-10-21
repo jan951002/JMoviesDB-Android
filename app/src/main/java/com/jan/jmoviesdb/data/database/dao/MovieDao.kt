@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MovieDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun saveMovies(movies: List<Movie>)
 
     @Query("SELECT COUNT(id) FROM movies")
@@ -18,4 +18,7 @@ interface MovieDao {
 
     @Query("SELECT * FROM movies")
     fun getMovies(): Flow<List<Movie>>
+
+    @Query("UPDATE movies SET count_on_cart = :quantity WHERE local_id = :movieLocalId")
+    suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int)
 }
