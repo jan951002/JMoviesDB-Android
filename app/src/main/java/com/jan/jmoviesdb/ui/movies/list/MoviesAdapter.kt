@@ -1,4 +1,4 @@
-package com.jan.jmoviesdb.ui.movies
+    package com.jan.jmoviesdb.ui.movies.list
 
 import android.content.Context
 import android.view.ViewGroup
