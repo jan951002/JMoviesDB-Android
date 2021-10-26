@@ -13,5 +13,12 @@ import org.koin.dsl.module
 val viewModelModule = module {
 
     /* Define a ViewModel for MoviesViewModel */
-    viewModel { MoviesViewModel(application = androidApplication(), movieRepository = get()) }
+    viewModel {
+        MoviesViewModel(
+            application = androidApplication(),
+            checkRequireMoviesNewPageUseCase = get(),
+            getMoviesUseCase = get(),
+            updateMovieQuantityOnShoppingCartUseCase = get()
+        )
+    }
 }
