@@ -45,13 +45,4 @@ class CounterView(context: Context, attrs: AttributeSet?) : LinearLayout(context
     fun updateCountRemoveListener(countRemoveListener: () -> Unit) {
         mCountRemoveListener = countRemoveListener
     }
-
-    companion object {
-        @BindingAdapter("count")
-        @JvmStatic
-        fun CounterView.setCount(count: Int) {
-            this.count = count
-            (getChildAt(1) as MaterialTextView).text = this.count.toString()
-        }
-    }
 }
