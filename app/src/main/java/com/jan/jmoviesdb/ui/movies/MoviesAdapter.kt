@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jan.jmoviesdb.R
-import com.jan.jmoviesdb.data.domain.model.Movie
+import com.jan.jmoviesdb.domain.movie.Movie
 import com.jan.jmoviesdb.databinding.ItemMovieViewBinding
 import com.jan.jmoviesdb.util.MovieClickListener
 import com.jan.jmoviesdb.util.Utils.basicDiffUtil
@@ -14,7 +14,7 @@ import com.jan.jmoviesdb.util.Utils.loadUrl
 
 class MoviesAdapter(private val listener: MovieClickListener) :
 
-    ListAdapter<Movie, MoviesAdapter.ViewHolder>(basicDiffUtil<Movie>(
+    ListAdapter<com.jan.jmoviesdb.domain.movie.Movie, MoviesAdapter.ViewHolder>(basicDiffUtil<com.jan.jmoviesdb.domain.movie.Movie>(
         areContentsTheSame = { oldItem, newItem -> oldItem.id == newItem.id },
         areItemsTheSame = { oldItem, newItem -> oldItem == newItem }
     )) {
@@ -33,7 +33,7 @@ class MoviesAdapter(private val listener: MovieClickListener) :
         private val context: Context
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: Movie) {
+        fun bind(movie: com.jan.jmoviesdb.domain.movie.Movie) {
             binding.movie = movie
             binding.movieImage.loadUrl("${context.getString(R.string.movies_db_base_url_img)}${movie.posterPath}")
             binding.counterView.updateCountAddListener { listener.onAddMovie(movie) }
@@ -42,7 +42,7 @@ class MoviesAdapter(private val listener: MovieClickListener) :
     }
 
     interface OnItemClickListener {
-        fun onAddMovie(movie: Movie)
-        fun onRemoveMovie(movie: Movie)
+        fun onAddMovie(movie: com.jan.jmoviesdb.domain.movie.Movie)
+        fun onRemoveMovie(movie: com.jan.jmoviesdb.domain.movie.Movie)
     }
 }

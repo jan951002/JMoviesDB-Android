@@ -1,7 +1,9 @@
 package com.jan.jmoviesdb.data.database.datasource
 
 import com.jan.jmoviesdb.data.database.dao.MovieDao
-import com.jan.jmoviesdb.data.domain.model.Movie
+import com.jan.jmoviesdb.data.database.mapper.toMovieDomain
+import com.jan.jmoviesdb.data.database.mapper.toMovieRoom
+import com.jan.jmoviesdb.domain.movie.Movie
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

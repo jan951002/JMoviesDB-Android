@@ -5,8 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.jan.jmoviesdb.data.domain.model.Movie
-import com.jan.jmoviesdb.data.domain.repository.MovieRepository
+import com.jan.jmoviesdb.domain.movie.Movie
 import com.jan.jmoviesdb.usecases.CheckRequireMoviesNewPageUseCase
 import com.jan.jmoviesdb.usecases.GetMoviesUseCase
 import com.jan.jmoviesdb.usecases.UpdateMovieQuantityOnShoppingCartUseCase
@@ -21,7 +20,7 @@ class MoviesViewModel(
     private val updateMovieQuantityOnShoppingCartUseCase: UpdateMovieQuantityOnShoppingCartUseCase
 ) : AndroidViewModel(application) {
 
-    val movies: LiveData<List<Movie>> = getMoviesUseCase.invoke().asLiveData()
+    val movies: LiveData<List<com.jan.jmoviesdb.domain.movie.Movie>> = getMoviesUseCase.invoke().asLiveData()
     val lastVisible = MutableStateFlow(0)
 
     init {

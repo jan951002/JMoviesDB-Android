@@ -1,12 +1,11 @@
-package com.jan.jmoviesdb.data.domain.repository
+package com.jan.jmoviesdb.data.repository
 
 import com.jan.jmoviesdb.data.api.datasource.MovieRemoteDataSource
 import com.jan.jmoviesdb.data.database.datasource.MovieLocalDataSource
-import com.jan.jmoviesdb.data.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
-    fun getMovies(): Flow<List<Movie>>
+    fun getMovies(): Flow<List<com.jan.jmoviesdb.domain.movie.Movie>>
     suspend fun checkRequireNewPage(lastVisible: Int)
     suspend fun updateQuantityOnShoppingCart(movieLocalId: Long, quantity: Int)
 }
@@ -21,7 +20,7 @@ class MovieRepositoryImpl(
         private const val PAGE_THRESHOLD = 10
     }
 
-    override fun getMovies(): Flow<List<Movie>> = movieLocalDataSource.getMovies()
+    override fun getMovies(): Flow<List<com.jan.jmoviesdb.domain.movie.Movie>> = movieLocalDataSource.getMovies()
 
     override suspend fun checkRequireNewPage(lastVisible: Int) {
         val size = movieLocalDataSource.countMovies()

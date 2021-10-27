@@ -2,7 +2,7 @@ package com.jan.jmoviesdb.data.api.response
 
 
 import com.google.gson.annotations.SerializedName
-import com.jan.jmoviesdb.data.domain.model.Movie
+import com.jan.jmoviesdb.domain.movie.Movie
 
 data class MovieResponse(
     @SerializedName("adult")
@@ -31,23 +31,4 @@ data class MovieResponse(
     var voteAverage: Double,
     @SerializedName("vote_count")
     var voteCount: Int
-) {
-
-    fun toMovieDomain(): Movie = Movie(
-        id = this.id,
-        adult = this.adult,
-        genreIds = this.genreIds,
-        originalLanguage = this.originalLanguage ?: "",
-        originalTitle = this.originalTitle ?: "",
-        overview = this.overview ?: "",
-        popularity = this.popularity,
-        posterPath = this.posterPath ?: "",
-        releaseDate = this.releaseDate ?: "",
-        title = this.title ?: "",
-        video = this.video,
-        voteAverage = this.voteAverage,
-        voteCount = this.voteCount,
-        countOnCart = 0,
-        localId = 0L
-    )
-}
+)

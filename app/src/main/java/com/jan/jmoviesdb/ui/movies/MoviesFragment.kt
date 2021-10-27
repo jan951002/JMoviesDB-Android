@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jan.jmoviesdb.base.BaseFragment
-import com.jan.jmoviesdb.data.domain.model.Movie
+import com.jan.jmoviesdb.domain.movie.Movie
 import com.jan.jmoviesdb.databinding.FragmentMoviesBinding
 import com.jan.jmoviesdb.util.MovieClickListener
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -39,12 +39,12 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(FragmentMoviesBinding
         })
     }
 
-    override fun onAddMovie(movie: Movie) {
+    override fun onAddMovie(movie: com.jan.jmoviesdb.domain.movie.Movie) {
         val count = movie.countOnCart++
         moviesViewModel.updateQuantityOnShoppingCart(movie.localId, count)
     }
 
-    override fun onRemoveMovie(movie: Movie) {
+    override fun onRemoveMovie(movie: com.jan.jmoviesdb.domain.movie.Movie) {
         val count = movie.countOnCart--
         moviesViewModel.updateQuantityOnShoppingCart(movie.localId, count)
     }

@@ -8,14 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.jan.jmoviesdb.R
-import com.jan.jmoviesdb.data.domain.model.Movie
-import com.jan.jmoviesdb.databinding.ActivityMainBinding.inflate
 import es.dmoral.toasty.Toasty
 
 object Utils {

@@ -6,7 +6,7 @@
 
         <variable
             name="movie"
-            type="com.jan.jmoviesdb.data.domain.model.Movie" />
+            type="com.jan.jmoviesdb.domain.movie.Movie" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -47,13 +47,14 @@
                 android:paddingVertical="@dimen/minimum_margin_vertical"
                 android:text="@string/lab_add_shopping_cart"
                 android:textAllCaps="false"
+                android:visibility="gone"
                 card_view:icon="@drawable/ic_add_shopping_cart" />
 
             <com.jan.jmoviesdb.ui.custom.view.CounterView
                 android:id="@+id/counterView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:count="@{movie.countOnCart}" />
+                android:visibility="gone" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

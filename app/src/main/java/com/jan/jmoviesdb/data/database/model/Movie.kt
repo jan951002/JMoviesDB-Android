@@ -2,7 +2,6 @@ package com.jan.jmoviesdb.data.database.model
 
 import androidx.room.*
 import com.jan.jmoviesdb.data.database.coverter.DataListIntConverter
-import com.jan.jmoviesdb.data.domain.model.Movie
 
 @Entity(tableName = "movies")
 data class Movie(
@@ -47,22 +46,4 @@ data class Movie(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "local_id")
     var localId = 0L
-
-    fun toMovieDomain(): Movie = Movie(
-        id = this.id,
-        adult = this.adult,
-        genreIds = this.genreIds,
-        originalLanguage = this.originalLanguage,
-        originalTitle = this.originalTitle,
-        overview = this.overview,
-        popularity = this.popularity,
-        posterPath = this.posterPath,
-        releaseDate = this.releaseDate,
-        title = this.title,
-        video = this.video,
-        voteAverage = this.voteAverage,
-        voteCount = this.voteCount,
-        countOnCart = this.countOnCart,
-        localId = localId
-    )
 }
