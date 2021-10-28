@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="JMoviesDB.app" target="11" />
+      <module name="JMoviesDB.data" target="11" />
+      <module name="JMoviesDB.framework.adaptermanager" target="11" />
+      <module name="JMoviesDB.framework.apimanager" target="11" />
+      <module name="JMoviesDB.framework.baseui" target="11" />
+      <module name="JMoviesDB.framework.databasemanager" target="11" />
+      <module name="JMoviesDB.framework.imagemanager" target="11" />
+      <module name="JMoviesDB.usecases" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

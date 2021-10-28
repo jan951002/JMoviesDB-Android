@@ -1,2 +1,10 @@
 include ':app'
 rootProject.name = "JMoviesDB"
+include ':domain'
+include ':data'
+include ':usecases'
+include ':framework:apimanager'
+include ':framework:databasemanager'
+include ':framework:imagemanager'
+include ':framework:adaptermanager'
+include ':framework:baseui'

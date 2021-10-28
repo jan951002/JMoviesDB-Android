@@ -1,8 +1,8 @@
 package com.jan.jmoviesdb.di
 
-import com.jan.jmoviesdb.usecases.CheckRequireMoviesNewPageUseCase
-import com.jan.jmoviesdb.usecases.GetMoviesUseCase
-import com.jan.jmoviesdb.usecases.UpdateMovieQuantityOnShoppingCartUseCase
+import com.jan.jmoviesdb.usecases.movie.CheckRequireMoviesNewPageUseCase
+import com.jan.jmoviesdb.usecases.movie.GetMoviesUseCase
+import com.jan.jmoviesdb.usecases.movie.UpdateMovieQuantityOnShoppingCartUseCase
 import org.koin.dsl.module
 
 /**
@@ -13,13 +13,13 @@ import org.koin.dsl.module
 val useCasesModule = module {
 
     /* Define a factory (create a new instance each time) for CheckRequireMoviesNewPageUseCase */
-    factory { CheckRequireMoviesNewPageUseCase(movieRepository = get()) }
+    factory { com.jan.jmoviesdb.usecases.movie.CheckRequireMoviesNewPageUseCase(movieRepository = get()) }
 
     /* Define a factory (create a new instance each time) for GetMoviesUseCase */
-    factory { GetMoviesUseCase(movieRepository = get()) }
+    factory { com.jan.jmoviesdb.usecases.movie.GetMoviesUseCase(movieRepository = get()) }
 
     /* Define a factory (create a new instance each time) for UpdateMovieQuantityOnShoppingCartUseCase */
     factory {
-        UpdateMovieQuantityOnShoppingCartUseCase(movieRepository = get())
+        com.jan.jmoviesdb.usecases.movie.UpdateMovieQuantityOnShoppingCartUseCase(movieRepository = get())
     }
 }

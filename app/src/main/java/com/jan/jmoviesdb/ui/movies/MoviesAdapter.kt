@@ -5,12 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jan.jmoviesdb.R
-import com.jan.jmoviesdb.data.domain.model.Movie
+import com.jan.jmoviesdb.adaptermanager.basicDiffUtil
+import com.jan.jmoviesdb.adaptermanager.inflate
 import com.jan.jmoviesdb.databinding.ItemMovieViewBinding
-import com.jan.jmoviesdb.util.MovieClickListener
-import com.jan.jmoviesdb.util.Utils.basicDiffUtil
-import com.jan.jmoviesdb.util.Utils.inflate
-import com.jan.jmoviesdb.util.Utils.loadUrl
+import com.jan.jmoviesdb.domain.movie.Movie
+import com.jan.jmoviesdb.imagemanager.loadUrl
+
+typealias MovieClickListener = MoviesAdapter.OnItemClickListener
 
 class MoviesAdapter(private val listener: MovieClickListener) :
 
@@ -35,7 +36,10 @@ class MoviesAdapter(private val listener: MovieClickListener) :
 
         fun bind(movie: Movie) {
             binding.movie = movie
-            binding.movieImage.loadUrl("${context.getString(R.string.movies_db_base_url_img)}${movie.posterPath}")
+            binding.movieImage.loadUrl(
+                "${context.getString(R.string.movies_db_base_url_img)}${movie.posterPath}",
+                R.drawable.ic_place_holder
+            )
             binding.counterView.updateCountAddListener { listener.onAddMovie(movie) }
             binding.counterView.updateCountRemoveListener { listener.onRemoveMovie(movie) }
         }
