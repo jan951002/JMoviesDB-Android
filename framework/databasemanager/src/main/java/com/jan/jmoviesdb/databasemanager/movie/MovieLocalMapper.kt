@@ -1,4 +1,4 @@
-package com.jan.jmoviesdb.data.database.mapper
+package com.jan.jmoviesdb.databasemanager.movie
 
 import com.jan.jmoviesdb.databasemanager.movie.Movie
 

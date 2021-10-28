@@ -1,18 +1,18 @@
-package com.jan.jmoviesdb.base
+package com.jan.jmoviesdb.baseui
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.viewbinding.ViewBinding
-import com.jan.jmoviesdb.util.Inflate
 
 /**
  * Base activity class
  * @author Jaime Trujillo
  */
-
 abstract class BaseActivity<Binding : ViewBinding>(private val inflate: Inflate<Binding>) :
     AppCompatActivity() {
 

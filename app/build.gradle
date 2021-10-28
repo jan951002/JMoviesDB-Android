@@ -50,8 +50,11 @@ dependencies {
 
     implementation project(":domain")
     implementation project(":data")
+    implementation project(":framework:adaptermanager")
     implementation project(":framework:apimanager")
+    implementation project(":framework:baseui")
     implementation project(":framework:databasemanager")
+    implementation project(":framework:imagemanager")
     implementation project(":usecases")
 
     implementation generalDependencies.kotlin
@@ -80,15 +83,8 @@ dependencies {
         compile.exclude group: 'org.jetbrains.kotlinx', module: 'atomicfu-common'
     }
 
-    //Toasty
-    implementation generalDependencies.toasty
-
     //LiveData
     implementation generalDependencies.livedata
-
-    //Glide
-    implementation generalDependencies.glide
-    kapt compilerDependencies.glide
 
     kapt compilerDependencies.databinding
 }

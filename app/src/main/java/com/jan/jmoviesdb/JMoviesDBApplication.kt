@@ -1,4 +1,4 @@
-package com.jan.jmoviesdb.base
+package com.jan.jmoviesdb
 
 import android.app.Application
 import com.jan.jmoviesdb.di.*
@@ -9,13 +9,13 @@ import org.koin.core.context.startKoin
  * Application class
  * @author Jaime Trujillo
  */
-class BaseApplication : Application() {
+class JMoviesDBApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
         /* Adding Koin modules to our application */
         startKoin {
-            androidContext(this@BaseApplication)
+            androidContext(this@JMoviesDBApplication)
             modules(
                 apiModule,
                 databaseModule,
