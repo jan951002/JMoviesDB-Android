@@ -1,7 +1,7 @@
 package com.jan.jmoviesdb.di
 
-import com.jan.jmoviesdb.data.repository.MovieRepository
-import com.jan.jmoviesdb.data.repository.MovieRepositoryImpl
+import com.jan.jmoviesdb.data.movie.MovieRepository
+import com.jan.jmoviesdb.data.movie.MovieRepositoryImpl
 import org.koin.dsl.module
 
 /**

@@ -6,21 +6,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.jan.jmoviesdb.domain.movie.Movie
-import com.jan.jmoviesdb.usecases.CheckRequireMoviesNewPageUseCase
-import com.jan.jmoviesdb.usecases.GetMoviesUseCase
-import com.jan.jmoviesdb.usecases.UpdateMovieQuantityOnShoppingCartUseCase
+import com.jan.jmoviesdb.usecases.movie.CheckRequireMoviesNewPageUseCase
+import com.jan.jmoviesdb.usecases.movie.GetMoviesUseCase
+import com.jan.jmoviesdb.usecases.movie.UpdateMovieQuantityOnShoppingCartUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MoviesViewModel(
     application: Application,
-    private val getMoviesUseCase: GetMoviesUseCase,
+    getMoviesUseCase: GetMoviesUseCase,
     private val checkRequireMoviesNewPageUseCase: CheckRequireMoviesNewPageUseCase,
     private val updateMovieQuantityOnShoppingCartUseCase: UpdateMovieQuantityOnShoppingCartUseCase
 ) : AndroidViewModel(application) {
 
-    val movies: LiveData<List<com.jan.jmoviesdb.domain.movie.Movie>> = getMoviesUseCase.invoke().asLiveData()
+    val movies: LiveData<List<Movie>> = getMoviesUseCase.invoke().asLiveData()
     val lastVisible = MutableStateFlow(0)
 
     init {

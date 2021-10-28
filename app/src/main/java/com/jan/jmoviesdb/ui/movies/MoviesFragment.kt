@@ -39,12 +39,12 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(FragmentMoviesBinding
         })
     }
 
-    override fun onAddMovie(movie: com.jan.jmoviesdb.domain.movie.Movie) {
+    override fun onAddMovie(movie: Movie) {
         val count = movie.countOnCart++
         moviesViewModel.updateQuantityOnShoppingCart(movie.localId, count)
     }
 
-    override fun onRemoveMovie(movie: com.jan.jmoviesdb.domain.movie.Movie) {
+    override fun onRemoveMovie(movie: Movie) {
         val count = movie.countOnCart--
         moviesViewModel.updateQuantityOnShoppingCart(movie.localId, count)
     }

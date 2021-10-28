@@ -3,6 +3,8 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="JMoviesDB.app" target="11" />
+      <module name="JMoviesDB.data" target="11" />
+      <module name="JMoviesDB.usecases" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,3 +1,5 @@
 include ':app'
 rootProject.name = "JMoviesDB"
 include ':domain'
+include ':data'
+include ':usecases'

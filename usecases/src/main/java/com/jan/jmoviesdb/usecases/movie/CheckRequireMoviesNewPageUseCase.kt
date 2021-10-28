@@ -1,6 +1,6 @@
-package com.jan.jmoviesdb.usecases
+package com.jan.jmoviesdb.usecases.movie
 
-import com.jan.jmoviesdb.data.repository.MovieRepository
+import com.jan.jmoviesdb.data.movie.MovieRepository
 
 class CheckRequireMoviesNewPageUseCase(private val movieRepository: MovieRepository) {
 

@@ -4,8 +4,8 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.jan.jmoviesdb.R
 import com.jan.jmoviesdb.data.api.MovieDBApi
-import com.jan.jmoviesdb.data.api.datasource.MovieRemoteDataSource
 import com.jan.jmoviesdb.data.api.datasource.MovieRemoteDataSourceImpl
+import com.jan.jmoviesdb.data.movie.MovieRemoteDataSource
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module

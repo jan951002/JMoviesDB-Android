@@ -49,6 +49,8 @@ dependencies {
     def compilerDependencies = rootProject.ext.compilerDependencies
 
     implementation project(":domain")
+    implementation project(":data")
+    implementation project(":usecases")
 
     implementation generalDependencies.kotlin
     implementation generalDependencies.coreKtx
