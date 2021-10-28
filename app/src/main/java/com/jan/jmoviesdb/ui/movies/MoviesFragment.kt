@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jan.jmoviesdb.base.BaseFragment
-import com.jan.jmoviesdb.data.domain.model.Movie
+import com.jan.jmoviesdb.baseui.BaseFragment
 import com.jan.jmoviesdb.databinding.FragmentMoviesBinding
-import com.jan.jmoviesdb.util.MovieClickListener
+import com.jan.jmoviesdb.domain.movie.Movie
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MoviesFragment : BaseFragment<FragmentMoviesBinding>(FragmentMoviesBinding::inflate),
