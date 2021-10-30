@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -39,6 +40,7 @@ android {
     }
     kapt {
         generateStubs = true
+        correctErrorTypes = true
     }
 }
 
@@ -71,11 +73,6 @@ dependencies {
     implementation generalDependencies.navigationFragment
     implementation generalDependencies.navigationUi
 
-    // Koin for the dependencies injections
-    implementation generalDependencies.koin
-    implementation generalDependencies.koinViewodel
-    implementation generalDependencies.koinScope
-
     // Coroutines for asynchronous calls (and Deferred’s adapter)
     implementation generalDependencies.coroutines
     implementation generalDependencies.coroutinesAndroid
@@ -87,4 +84,17 @@ dependencies {
     implementation generalDependencies.livedata
 
     kapt compilerDependencies.databinding
+
+    //Dagger hilt for dependency injections
+    implementation generalDependencies.daggerHilt
+    kapt compilerDependencies.daggerHilt
+
+    //Activity and fragment ktx
+    implementation generalDependencies.activityKtx
+    implementation generalDependencies.fragmentKtx
+
+    // room
+    implementation generalDependencies.room
+    implementation generalDependencies.roomKtx
+    kapt compilerDependencies.room
 }
