@@ -2,17 +2,19 @@ package com.jan.jmoviesdb.ui.movies
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jan.jmoviesdb.baseui.BaseFragment
 import com.jan.jmoviesdb.databinding.FragmentMoviesBinding
 import com.jan.jmoviesdb.domain.movie.Movie
-import org.koin.android.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MoviesFragment : BaseFragment<FragmentMoviesBinding>(FragmentMoviesBinding::inflate),
     MovieClickListener {
 
-    private val moviesViewModel: MoviesViewModel by viewModel()
+    private val moviesViewModel: MoviesViewModel by viewModels()
     private lateinit var moviesAdapter: MoviesAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
